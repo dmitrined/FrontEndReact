@@ -34,3 +34,5 @@ const mig29: Airplane = {
   maxHeight: 18000,
   capacity: 1,
 };
+
+console.log(boeing747,cessna172,mig29);
