@@ -1,0 +1,11 @@
+.cityClass{
+    display: flex;
+    flex-direction: column;
+}
+.imageClass{
+    width: 100%;
+}
+.first{
+    font-size: 35px;
+    color: red;
+}

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    /* Modules */
+    "module": "CommonJS", /* Использует CommonJS модули */
+    "target": "es2020",   /* Компилирует для современной версии JS */
+    "esModuleInterop": true, /* Включает взаимодействие между CommonJS и ES Modules */
+    "forceConsistentCasingInFileNames": true,
+    
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
