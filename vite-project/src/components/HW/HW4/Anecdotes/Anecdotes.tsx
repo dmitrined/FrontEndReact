@@ -30,7 +30,7 @@ export default function Anecdotes(): JSX.Element {
     }, []);
     return (
         <div className={style.container} style={pageStyle}>
-            <h1 className={style.title}>Anecdotes</h1>
+            <h1 className={style.title}>😂 🤣 Anecdotes 😂 🤣</h1>
             <div className={style.anecdote}>
                 <p className={style.setup}>{setup}</p>
                 <p className={style.punchline}>{punchline}</p>
