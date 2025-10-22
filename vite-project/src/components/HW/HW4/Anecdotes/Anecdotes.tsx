@@ -34,8 +34,8 @@ export default function Anecdotes(): JSX.Element {
             <div className={style.anecdote}>
                 <p className={style.setup}>{setup}</p>
                 <p className={style.punchline}>{punchline}</p>
-                <button onClick={loadAnecdote}>Next Anecdote</button>
-                <button onClick={toggleTheme}>Сhange screen theme</button>
+                <button onClick={loadAnecdote}>Следующий анекдот</button>
+                <button onClick={toggleTheme}>Сменить тему</button>
             </div>
         </div>
     );
