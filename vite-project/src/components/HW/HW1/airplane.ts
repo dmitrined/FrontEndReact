@@ -7,8 +7,7 @@ capacity - опциональное поле вместимость
 Создайте несколько переменных типа Airplane.
 */
 
-export {}; // Добавьте эту строку, чтобы файл считался модулем
-
+/*
 interface Airplane {
   numberOfEngines: number; // количество двигателей
   isJet: boolean; // реактивный
@@ -17,7 +16,7 @@ interface Airplane {
 }
 
 // Примеры переменных типа Airplane
-/*const boeing747: Airplane = {
+const boeing747: Airplane = {
   numberOfEngines: 4,
   isJet: true,
   maxHeight: 13100,
@@ -37,4 +36,4 @@ const mig29: Airplane = {
   capacity: 1,
 };*/
 
-export type { Airplane }; // Экспортируем только тип
+
