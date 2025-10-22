@@ -17,7 +17,7 @@ interface Airplane {
 }
 
 // Примеры переменных типа Airplane
-const boeing747: Airplane = {
+/*const boeing747: Airplane = {
   numberOfEngines: 4,
   isJet: true,
   maxHeight: 13100,
@@ -35,7 +35,6 @@ const mig29: Airplane = {
   isJet: true,
   maxHeight: 18000,
   capacity: 1,
-};
+};*/
 
-console.log(boeing747, cessna172, mig29);
 export type { Airplane }; // Экспортируем только тип
