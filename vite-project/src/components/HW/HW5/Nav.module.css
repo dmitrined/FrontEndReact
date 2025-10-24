@@ -1,0 +1,80 @@
+:root {
+  --color-primary: #182C40; 
+  --color-accent: #FFC000; 
+  --color-text-light: #F0F0F0;
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --transition-speed: 0.3s;
+  --nav-height: 65px;
+  --gap-size: 40px;
+}
+
+
+.navigation {
+  background-color: var(--color-primary); 
+  height: var(--nav-height); 
+  width: 100%; 
+  box-shadow: 0 3px 10px var(--color-shadow); 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.list {
+  max-width: 1400px;
+  width: 100%;
+  
+  display: flex;
+  gap: var(--gap-size);
+  justify-content: center;
+  align-items: center;
+  
+  list-style-type: none; 
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+.link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 16px; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
+  
+  padding: 10px 0; 
+  transition: color var(--transition-speed), transform var(--transition-speed);
+  display: block;
+  position: relative;
+}
+
+
+.link:hover {
+  color: var(--color-accent); 
+  transform: scale(1.05); 
+}
+
+
+.link[aria-current="page"],
+.link.active {
+  color: var(--color-accent);
+}
+
+.link[aria-current="page"]::after,
+.link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; 
+  height: 3px;
+  background-color: var(--color-accent);
+}

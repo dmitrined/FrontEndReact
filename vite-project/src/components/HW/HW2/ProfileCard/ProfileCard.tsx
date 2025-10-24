@@ -1,6 +1,6 @@
-import type { Profile } from '../profiles'; // Импорт интерфейса и данных
- // Импорт интерфейса и данных
-import styles from './ProfileCard.module.css'; // Импорт стилей
+import type { Profile } from "../profiles"; // Импорт интерфейса и данных
+// Импорт интерфейса и данных
+import styles from "./ProfileCard.module.css"; // Импорт стилей
 
 export default function ProfileCard({ profile }: { profile: Profile }) {
   return (
