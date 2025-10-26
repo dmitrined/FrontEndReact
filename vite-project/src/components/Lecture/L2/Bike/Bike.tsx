@@ -17,3 +17,4 @@ export default function Bike(props:Props): JSX.Element {
     </div>
   )
 }
+

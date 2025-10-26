@@ -21,6 +21,11 @@ export default function Nav():JSX.Element {
             Anecdotes
             </NavLink>
             </li>
+            <li className={style.listElement}>
+            <NavLink to="appP3" className={style.link}>
+            Burger
+            </NavLink>
+            </li>
             </ul>
         </nav>
     )

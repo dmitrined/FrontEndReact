@@ -15,3 +15,4 @@ export default function Car(props: Props): JSX.Element {
   </div>
   )
 }
+
