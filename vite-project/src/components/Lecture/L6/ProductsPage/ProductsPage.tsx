@@ -43,6 +43,13 @@ export default function ProductsPage(): JSX.Element {
             key={product.id}
           >
             <h3>{product.title}</h3>
+            <div>
+            <img
+              src={product.image}
+              alt={product.title}
+              className={styles.productImage}
+            />
+          </div>
             <div>Цена: ${product.price.toFixed(2)}</div>
             <div>Категория: {product.category}</div>
             <div>Рейтинг: {product.rating.rate} (отзывов: {product.rating.count})</div>
