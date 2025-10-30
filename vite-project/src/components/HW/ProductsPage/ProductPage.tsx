@@ -1,13 +1,13 @@
 import { useEffect, useState, type JSX } from "react";
 import { Link, useParams } from "react-router-dom";
-import type Product from "./Product"; 
-import { useTheme } from "../themeContext/useTheme"; 
-import styles from "./ProductsPage.module.css"; 
+import type Product from "./Product";
+import { useTheme } from "../../Lecture/L6/themeContext/useTheme";
+import styles from "./ProductsPage.module.css";
 
 export default function ProductPage(): JSX.Element {
   const { productId } = useParams();
   const [product, setProduct] = useState<Product>();
-  
+
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -20,7 +20,6 @@ export default function ProductPage(): JSX.Element {
   }, [productId]);
 
   return (
-    
     <div
       className={`${styles.pageContainer} ${
         theme === "dark" ? styles.dark : styles.light
@@ -28,7 +27,7 @@ export default function ProductPage(): JSX.Element {
     >
       <header className={styles.header}>
         <h2>Детали товара: {product?.title || "Загрузка..."}</h2>
-       
+
         <button onClick={toggleTheme} className={styles.themeToggleBtn}>
           Переключить на {theme === "light" ? "Dark" : "Light"}
         </button>

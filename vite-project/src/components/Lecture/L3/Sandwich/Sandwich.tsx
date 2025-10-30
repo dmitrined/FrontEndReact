@@ -56,11 +56,21 @@ export default function Sandwich(): JSX.Element {
           Resset
         </button>
         <div>
-        <button type="button" className={style.themeToggle } onClick={toggleTheme} >Переключить тему на (текущая: {theme})</button>
-        <button type='button' className={style.themeToggle} onClick={toggleTheme}>
-        Переключить тему на: {theme === 'dark' ? 'light' : 'dark'} (текущая:{' '}
-        {theme})
-      </button>
+          <button
+            type="button"
+            className={style.themeToggle}
+            onClick={toggleTheme}
+          >
+            Переключить тему на (текущая: {theme})
+          </button>
+          <button
+            type="button"
+            className={style.themeToggle}
+            onClick={toggleTheme}
+          >
+            Переключить тему на: {theme === "dark" ? "light" : "dark"} (текущая:{" "}
+            {theme})
+          </button>
         </div>
       </div>
     </div>

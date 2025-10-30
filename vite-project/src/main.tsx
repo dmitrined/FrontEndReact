@@ -5,11 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import ThemeProvider from "./components/Lecture/L6/themeContext/ThemeProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <ThemeProvider >
-<BrowserRouter basename="/FrontEndReact">
-    <App />
-  </BrowserRouter>
+  <ThemeProvider>
+    <BrowserRouter basename="/FrontEndReact">
+      <App />
+    </BrowserRouter>
   </ThemeProvider>
-  
-  
 );

@@ -1,7 +1,7 @@
 import { useEffect, useState, type JSX } from "react";
 import style from './DogsImage.module.css'
 
-export default function RandomDog(): JSX.Element {
+export default function DogsImage(): JSX.Element {
   const [URL, setURL] = useState<string>('');
   
   async function loadDogPicture(): Promise<void> {
