@@ -1,0 +1,52 @@
+/* ======================================================================== */
+/* ПЕРЕМЕННЫЕ ТЕМЫ ДЛЯ ФУТЕРА                                               */
+/* ======================================================================== */
+
+.footer[data-theme='light'] {
+    --footer-bg: #ffffff;
+    --footer-text: #555555;
+    --footer-border: #dddddd;
+    --toggle-bg: #cce7ff;
+}
+
+.footer[data-theme='dark'] {
+    --footer-bg: #2d2d2d;
+    --footer-text: #aaaaaa;
+    --footer-border: #444444;
+    --toggle-bg: #004d99;
+}
+
+/* ======================================================================== */
+/* СТИЛИ ФУТЕРА                                                             */
+/* ======================================================================== */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-top: 1px solid var(--footer-border);
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.copyright {
+    margin: 0;
+}
+
+.themeToggle {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--toggle-bg);
+    color: var(--footer-text);
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.themeToggle:hover {
+    filter: brightness(1.1);
+}
