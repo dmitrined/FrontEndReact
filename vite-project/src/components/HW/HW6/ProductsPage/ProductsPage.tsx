@@ -3,7 +3,7 @@
 import { useEffect, useState, type JSX } from "react";
 import type Product from "./Product";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../Lecture/L6/themeContext/useTheme";
+import { useTheme } from "../../../Lecture/L6/themeContext/useTheme";
 import styles from "./ProductsPage.module.css";
 
 export default function ProductsPage(): JSX.Element {

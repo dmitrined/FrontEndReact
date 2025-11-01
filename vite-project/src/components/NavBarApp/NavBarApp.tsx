@@ -151,15 +151,7 @@ export default function NavBarApp({
                   DogsImage
                 </NavLink>
               </li>
-              <li className={style.listElement}>
-                <NavLink
-                  to="cardSecurityCheck"
-                  className={style.link}
-                  onClick={handleLinkClick}
-                >
-                  CardSecurityCheck
-                </NavLink>
-              </li>
+             
               <li className={style.listElement}>
                 <NavLink
                   to="contactForm"
@@ -224,6 +216,17 @@ export default function NavBarApp({
                   Products
                 </NavLink>
               </li>
+
+               <li className={style.listElement}>
+                <NavLink
+                  to="cardSecurityCheck"
+                  className={style.link}
+                  onClick={handleLinkClick}
+                >
+                  CardSecurityCheck
+                </NavLink>
+              </li>
+              
             </ul>
           )}
         </div>
