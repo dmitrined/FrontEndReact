@@ -122,7 +122,7 @@ export default function NavBarApp({ theme,toggleTheme }: NavProps): JSX.Element 
             </div>
             
             <button onClick={toggleTheme} className={style.themeToggle}>
-                Тема: {theme.toUpperCase()} {theme === 'light' ? '🌙' : '🌞'}
+                {theme === 'light' ? '🌙' : '🌞'}
             </button>
         </nav>
     )
