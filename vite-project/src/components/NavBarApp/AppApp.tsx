@@ -27,7 +27,7 @@ import Header from "../Consultation/Practice3/Header"; // Компонент с 
 
 // Импорт компонента Layout
 import LayOutApp from "./LayOutApp";
-
+import MyHome from "./MyHome/MyHome";
 
 // 🛑 ЛОГИКА ДЛЯ ПРОПСА Header: Функция-заглушка для обработки клика
 const handleAccountClick = () => {
@@ -35,44 +35,41 @@ const handleAccountClick = () => {
   // Здесь будет реальная логика, например, переход на страницу профиля
 };
 
-
 export default function AppApp(): JSX.Element {
   return (
     <Routes>
       {/* ВСЕ маршруты вложены в LayOutApp (NavBar + Outlet + Footer) */}
       <Route path="/" element={<LayOutApp />}>
-        
         {/* Главная страница (по умолчанию) */}
-        <Route index element={<Alcohol />} />
-        
-        {/* Заголовок-ссылка для раздела "Lecture" */}
-        <Route path="lecture" element={<Alcohol />} /> 
-        
+        <Route index element={<MyHome />} />
+        <Route path="home" element={<MyHome />} />
         {/* --- МАРШРУТЫ LECTURE --- */}
         <Route path="alcohol" element={<Alcohol />} />
         <Route path="carshop" element={<CarShop />} />
         <Route path="counter" element={<Counter />} />
         <Route path="sandwich" element={<Sandwich />} />
         <Route path="userspage" element={<UsersPage />} />
-        <Route path="/userspage/:userId" element={<UserPage />} /> {/* Динамический маршрут */}
+        <Route path="/userspage/:userId" element={<UserPage />} />{" "}
+        {/* Динамический маршрут */}
         <Route path="playgrount" element={<Playgrount />} />
         <Route path="dogsImage" element={<DogsImage />} />
         <Route path="cardSecurityCheck" element={<CardSecurityCheck />} />
         <Route path="contactForm" element={<ContactForm />} />
-        
         {/* --- МАРШРУТЫ HOMEWORK --- */}
         <Route path="homework02" element={<Homework02 />} />
         <Route path="feedback" element={<Feedback />} />
         <Route path="anecdotes" element={<Anecdotes />} />
         <Route path="products" element={<ProductsPage />} />
-        <Route path="/products/:productId" element={<ProductPage />} /> {/* Динамический маршрут */}
-        
+        <Route path="/products/:productId" element={<ProductPage />} />{" "}
+        {/* Динамический маршрут */}
         {/* --- МАРШРУТЫ CONSULTATION --- */}
         <Route path="citiPage" element={<CityPage />} />
         <Route path="inputMiror" element={<InputMirror />} />
         {/* Передача требуемого пропса onAccountClick в компонент Header */}
-        <Route path="header" element={<Header onAccountClick={handleAccountClick} />} />
-
+        <Route
+          path="header"
+          element={<Header onAccountClick={handleAccountClick} />}
+        />
       </Route>
     </Routes>
   );

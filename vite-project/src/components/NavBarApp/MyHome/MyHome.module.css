@@ -1,0 +1,37 @@
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f4f4f9; /* Светлый фон */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.heading {
+  color: #2c3e50; /* Темный заголовок */
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  border-bottom: 3px solid #3498db; /* Синяя полоса под заголовком */
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.text {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.text strong {
+  color: #e74c3c; /* Красный акцент для ключевых слов */
+}
+
+.note {
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #7f8c8d; /* Серый цвет для примечания */
+  font-style: italic;
+}

@@ -21,7 +21,7 @@
     --footer-border: #cccccc;
     
     /* Кнопка переключения темы */
-    --toggle-bg: #007bff;
+    --toggle-bg: #666666;
 }
 
 /* 🌙 ТЕМНАЯ ТЕМА */
@@ -39,7 +39,7 @@
     --footer-text: #aaaaaa;
     --footer-border: #333333;
     
-    --toggle-bg:  #007bff;
+    --toggle-bg: #aaaaaa;
 }
 
 /* ======================================================================== */
@@ -80,9 +80,10 @@
 /* ======================================================================== */
 
 .navigation {
+    /* ИЗМЕНЕНО: Используем space-between для распределения элементов */
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between; 
     width: 100%;
     height: 55px; 
     padding: 0 15px;
@@ -90,7 +91,7 @@
     position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1000; /* Обеспечивает, что навигация всегда поверх контента */
+    z-index: 1000; 
     background-color: var(--nav-bg); 
     color: var(--primary-text);
     box-shadow: 0 2px 4px var(--shadow-color);
@@ -102,16 +103,42 @@
     height: auto;
     margin-right: 20px;
 }
+.myFoto {
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 50%;
+
+}
+.githubLink{
+    font-weight: bold;
+    margin-right: 20px;
+    text-transform: none;
+    text-decoration: none;
+    color: var(--primary-text);
+}
+
+.githubLink :hover{
+    background-color: var(--hover-bg);
+}
+/* ✅ НОВЫЙ КОНТЕЙНЕР ДЛЯ ВСЕХ НАВИГАЦИОННЫХ ССЫЛОК */
+.navItems {
+    display: flex; /* По умолчанию: горизонтальный вид */
+    align-items: center;
+    /* На больших экранах занимает центральное место */
+    margin-right: auto; 
+    transition: transform 0.3s ease-in-out;
+}
 
 /* Кнопка переключения темы */
 .themeToggle {
-    margin-left: auto; /* Прижимает кнопку вправо */
+    margin-left: 10px; /* Немного отступа от бургер-иконки или navItems */
     padding: 8px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     background-color: var(--toggle-bg);
-    color: var(--footer-text); /* Используем footer-text для контраста */
+    color: var(--footer-text); 
     font-weight: bold;
     transition: background-color 0.2s;
 }
@@ -120,13 +147,73 @@
     filter: brightness(1.1);
 }
 
-/* 🖥️ Медиазапрос для навигации */
-@media (min-width: 600px) {
+/* 🖥️ Медиазапрос для бургер-меню (мобильный вид) */
+@media (max-width: 900px) {
     .navigation {
-        height: 65px;
+        justify-content: space-between; /* Логотип слева, Toggle/Бургер справа */
+    }
+
+    /* Навигационные ссылки: скрываем и делаем вертикальным меню */
+    .navItems {
+        /* Переопределяем: full-screen sidebar */
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 55px; /* Под шапкой */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 55px);
+        background-color: var(--nav-bg);
+        padding: 20px 15px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        
+        /* Скрыто по умолчанию */
+        transform: translateX(-100%);
+        z-index: 999;
+        
+        /* Сброс margin, который был для больших экранов */
+        margin-right: 0; 
+    }
+
+    /* Состояние "открыто" */
+    .navItems.open {
+        transform: translateX(0);
+    }
+
+    /* Адаптация выпадающих списков внутри мобильного меню */
+    .dropdownContainer {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Выпадающий список должен быть статическим в мобильном меню */
+    .list {
+        position: static; 
+        width: 100%;
+        max-height: none; 
+        margin-top: 5px;
+        box-shadow: none; /* Убираем лишнюю тень в мобильном меню */
     }
 }
 
+
+/* 🖥️ Стилизация и адаптация бургер-иконки */
+.burgerIcon {
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+    font-size: 22px;
+    padding: 3px 10px;
+    cursor: pointer;
+    display: none; /* Скрыто по умолчанию (на больших экранах) */
+    margin-left: 10px;
+}
+
+@media (max-width: 900px) { 
+    .burgerIcon {
+        display: block; /* Показываем на мобильных */
+    }
+}
 /* ======================================================================== */
 /* 🔽 ВЫПАДАЮЩЕЕ МЕНЮ (DROPDOWN)                                           */
 /* ======================================================================== */
