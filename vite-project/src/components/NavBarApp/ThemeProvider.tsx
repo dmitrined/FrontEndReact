@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import ThemeContext from "./ThemeContext";
+import ThemeContext, { type ThemeType } from "./ThemeContext";
 
 // Интерфейс для пропсов, включающий дочерние элементы
 interface ThemeProviderProps {
@@ -8,7 +8,7 @@ interface ThemeProviderProps {
 
 export default function ThemeProvider({ children }: ThemeProviderProps) {
   // Состояние для хранения текущей темы
-  const [theme, setTheme] = useState<string>("light");
+  const [theme, setTheme] = useState<ThemeType>("light");
 
   // Функция для переключения темы
   function toggleTheme() {
