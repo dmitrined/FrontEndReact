@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import style from './FooterApp.module.css'; 
+import style from './LayoutApp.module.css'; 
 
 // Компонент принимает тему и переключатель
 export default function FooterApp(): JSX.Element {

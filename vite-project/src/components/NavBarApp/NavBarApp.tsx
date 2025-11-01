@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 import { useState } from 'react';
-import style from './NavBarApp.module.css'
+import style from './LayoutApp.module.css'
 import { Link, NavLink } from 'react-router-dom';
 import logoAit from "./img/AitLogo.png"
 // ✅ Импортируем строгий тип для согласованности
@@ -45,7 +45,8 @@ export default function NavBarApp({ theme,toggleTheme }: NavProps): JSX.Element 
     return(
         
         // Применение атрибута data-theme для CSS-стилизации
-        <nav className={style.navigation} data-theme={theme}>
+        <nav className={style.navigation} data-theme={theme} >
+           
             <img src={logoAit} alt="logoAit" className={style.logo} />
             
             {/* БЛОКИ АККОРДЕОНА: Обернуты в dropdownContainer для абсолютного позиционирования списков */}
@@ -124,6 +125,7 @@ export default function NavBarApp({ theme,toggleTheme }: NavProps): JSX.Element 
             <button onClick={toggleTheme} className={style.themeToggle}>
                 {theme === 'light' ? '🌙' : '🌞'}
             </button>
+            
         </nav>
     )
 }

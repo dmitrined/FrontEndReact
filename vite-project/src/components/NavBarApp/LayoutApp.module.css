@@ -1,19 +1,49 @@
 /* ======================================================================== */
-/* ПЕРЕМЕННЫЕ И ТЕМЫ (ПЕРЕОПРЕДЕЛЕНИЕ ОСНОВНОГО ФОНА)                       */
+/* 🎨 ПЕРЕМЕННЫЕ И ТЕМЫ                                                      */
 /* ======================================================================== */
 
-.layoutContainer[data-theme='light'] {
-    --primary-bg: #f5f5f5; /* Светлый фон страницы */
-    --primary-text: #333333;
+/* Глобальные переменные, которые могут быть переопределены темами */
+:root {
+    /* Основные цвета */
+    --primary-bg: #f5f5f5; /* Значение по умолчанию (светлая тема) */
+    --primary-text: #333333; /* Значение по умолчанию (светлая тема) */
+    --border-color: #e0e0e0;
+    --hover-bg: rgba(0, 0, 0, 0.05);
+    --active-bg: #e0f7fa; /* Цвет активного элемента в списке */
+
+    /* Навигация */
+    --nav-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Подвал */
+    --footer-bg: #eeeeee;
+    --footer-text: #666666;
+    --footer-border: #cccccc;
+    
+    /* Кнопка переключения темы */
+    --toggle-bg: #007bff;
 }
 
+/* 🌙 ТЕМНАЯ ТЕМА */
 .layoutContainer[data-theme='dark'] {
-    --primary-bg: #121212; /* Темный фон страницы */
+    --primary-bg: #121212; 
     --primary-text: #f0f0f0;
+    --border-color: #333333;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --active-bg: #004d40; /* Темный цвет активного элемента */
+    
+    --nav-bg: #1e1e1e;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+
+    --footer-bg: #1e1e1e;
+    --footer-text: #aaaaaa;
+    --footer-border: #333333;
+    
+    --toggle-bg:  #007bff;
 }
 
 /* ======================================================================== */
-/* ОСНОВНОЙ КОНТЕЙНЕР                                                       */
+/* 📦 ОСНОВНОЙ МАКЕТ (LAYOUT)                                               */
 /* ======================================================================== */
 
 .layoutContainer {
@@ -27,7 +57,7 @@
 }
 
 .mainContent {
-    /*  Отступ, чтобы контент не скрывался под фиксированной шапкой */
+    /* Отступ, чтобы контент не скрывался под фиксированной шапкой */
     padding-top: 65px; 
     flex-grow: 1; /* Позволяет контенту занимать все доступное место */
     padding-bottom: 20px; 
@@ -35,9 +65,160 @@
     padding-right: 15px;
 }
 
-/* Медиазапрос для адаптации отступа */
+/* 🖥️ Медиазапрос для адаптации отступа mainContent */
 @media (min-width: 600px) {
     .mainContent {
         padding-top: 75px; 
     }
+    .contentWrapper { /* Добавлен класс, который был упомянут, но не определен */
+        padding-top: 65px;
+    }
+}
+
+/* ======================================================================== */
+/* 🧭 НАВИГАЦИЯ (HEADER)                                                   */
+/* ======================================================================== */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 55px; 
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Обеспечивает, что навигация всегда поверх контента */
+    background-color: var(--nav-bg); 
+    color: var(--primary-text);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Кнопка переключения темы */
+.themeToggle {
+    margin-left: auto; /* Прижимает кнопку вправо */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--toggle-bg);
+    color: var(--footer-text); /* Используем footer-text для контраста */
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.themeToggle:hover {
+    filter: brightness(1.1);
+}
+
+/* 🖥️ Медиазапрос для навигации */
+@media (min-width: 600px) {
+    .navigation {
+        height: 65px;
+    }
+}
+
+/* ======================================================================== */
+/* 🔽 ВЫПАДАЮЩЕЕ МЕНЮ (DROPDOWN)                                           */
+/* ======================================================================== */
+
+.dropdownContainer {
+    position: relative; 
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Кнопки-переключатели (Link/Button) */
+.lectureToggle {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--primary-text);
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.lectureToggle:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Выпадающие списки (ul) */
+.list {
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    width: 250px;
+    max-height: 400px;
+    overflow-y: auto; 
+    box-shadow: 0 4px 6px var(--shadow-color);
+    background-color: var(--nav-bg);
+    border: 1px solid var(--border-color);
+    z-index: 1010;
+    border-radius: 4px;
+}
+
+.listElement {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.listElement:last-child {
+    border-bottom: none;
+}
+
+.link {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+}
+
+.link:hover {
+    background-color: var(--hover-bg);
+}
+
+.link.active {
+    background-color: var(--active-bg); 
+    font-weight: bold;
+}
+
+/* ======================================================================== */
+/* 🦶 ПОДВАЛ (FOOTER)                                                      */
+/* ======================================================================== */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-top: 1px solid var(--footer-border);
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+    width: 100%; /* Гарантируем полную ширину */
+    box-sizing: border-box;
+    margin-top: auto; /* Помогает прижать подвал вниз, если mainContent не 100% высоты */
+}
+
+.copyright {
+    margin: 0;
 }
