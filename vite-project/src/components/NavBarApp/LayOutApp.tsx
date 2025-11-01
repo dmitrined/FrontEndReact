@@ -1,12 +1,12 @@
 import type { JSX } from "react";
 import { Outlet } from "react-router-dom";
-import NavBarLecture from "./NavBarLecture";
+import NavBarApp from "./NavBarApp";
 
 
-export default function LayOut() : JSX.Element{
+export default function LayOutApp() : JSX.Element{
   return (
     <div>
-      <NavBarLecture />
+      <NavBarApp />
       <Outlet />
       <footer>
         Тут будет подвал
